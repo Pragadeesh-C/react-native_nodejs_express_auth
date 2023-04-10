@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
+import {ENDPOINT} from '@env'
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -9,7 +10,7 @@ const Register = () => {
   const navigation = useNavigation()
 
   const registerAcc = async () => {
-    await fetch('http://192.168.0.109:8000/api/user/register', {
+    await fetch(`${ENDPOINT}/api/user/register`, {
       method: "POST",
       headers: {
         Accept: 'application/json',
